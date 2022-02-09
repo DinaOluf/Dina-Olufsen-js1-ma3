@@ -1,0 +1,29 @@
+body {
+  height: 1vh;
+  background-color: rgb(255, 255, 190);
+}
+
+.result {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  border: solid black 1px;
+}
+
+.loading {
+  border: 2rem solid #d6b2ff;
+  border-top: 2rem solid rgb(88, 88, 151);
+  border-radius: 50%;
+  width: 9rem;
+  height: 9rem;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
