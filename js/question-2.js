@@ -39,5 +39,5 @@ getGames();
 
 // So I see that the Tag no. starts at 0 and not 1. 
 // I'd have to either code it to skip the first index (including game) with this code or make a new for-loop exclusively for the numbers to fix this, right? or is it an easier way to do this? I may be overcomplicating stuff.
-// I'd love to see your example! It'd help me understand.
+// I'd love to see an example! It'd help me understand.
 
