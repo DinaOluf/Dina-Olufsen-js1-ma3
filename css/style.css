@@ -3,11 +3,29 @@ body {
   background-color: rgb(255, 255, 190);
 }
 
+p {
+  font-size: 0.8em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: lighter;
+}
+
 .result {
   display: flex;
-  width: 10rem;
+  gap: 1rem;
+}
+
+.result-style {
+  width: 15rem;
+  height: 15rem;
+  border: solid black 1px;
+}
+
+.error {
+  display: flex;
+  width: 15rem;
   height: 10rem;
   border: solid black 1px;
+  background-color: rgb(255, 181, 181);
 }
 
 .loading {

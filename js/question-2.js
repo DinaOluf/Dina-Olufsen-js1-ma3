@@ -1,53 +1,9 @@
 
 // Question 2
-/*
-async function getGames() {
-    const response = await fetch("https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=ac81ef8728c145a584452ce8a279d7fd");
-    const results = await response.json();
-    console.log(results);
 
-    let html = "";
-
-    for(let i = 0; i < results.length; i++) {
-        if (i === 8) {
-            break
-        }
-
-        html += `<div class="result-style">Name: ${results[i].name} Rating: ${results[i].rating} Tag no. ${[i]}</div>`;
-    }
-}
-
-const html = document.querySelector("html");
-html.innerHTML = getGames();*/
-
-// ^ Feil
-
-
-
-
-/* Under denne er riktig - tatt fra https://github.com/NoroffFEU/get-request-with-regular-promise-syntax og https://vimeo.com/450776515/1adda6b1fd. */
-
-
-
-/*const API_URL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=ac81ef8728c145a584452ce8a279d7fd";
+const API_URL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=ac81ef8728c145a584452ce8a279d7fd";
 
 const resultContainer = document.querySelector(".result");
-
-
-function createHTML(results) {
-    const games = results.all;
-
-    resultContainer.innerHTML = "";
-
-        for (let i = 0; i < games.length; i++) {
-
-            if (i === 8) {
-                break;
-            }
-
-            resultContainer.innerHTML += `<div class="result">${games[i].text}</div>`;
-        }
-}
 
 function displayError(message = "Unknown error") {
     return `<div class="error">${message}</div>`;
@@ -55,19 +11,33 @@ function displayError(message = "Unknown error") {
 
 async function getGames() {
     try {
-        const response = await fetch(url);
-
+        const response = await fetch(API_URL);
         const data = await response.json();
+        const games = data.results;
 
-        const games = data.all;
+        resultContainer.innerHTML = "";
 
-        createHTML(games);
+        for (let i = 0; i < games.length; i++) {
 
+            if (i === 8) {
+                break;
+            }
+
+            resultContainer.innerHTML += `<div class="result-style">
+                <h2>${games[i].name}<h2>
+                <p>Rating: ${games[i].rating} <p>
+                <p>Tag no. ${[i]}<p>
+            </div>`;
+        }
     } catch (error) {
         resultContainer.innerHTML = displayError("An error occurred when calling the API");
     }
 }
 
-getGames();*/
+getGames();
 
+
+// So I see that the Tag no. starts at 0 and not 1. 
+// I'd have to either code it to skip the first index (including game) with this code or make a new for-loop exclusively for the numbers to fix this, right? or is it an easier way to do this? I may be overcomplicating stuff.
+// I'd love to see your example! It'd help me understand.
 
